@@ -15,9 +15,10 @@ import tyndfilm from "../assets/images/tynd-film.jpg";
 import "../styles/tobii.min.css";
 ---
 <MainLayout title="Titel">
+	<div class="progress-bar fixed h-full bg-gradient-to-b from-pink to-lyspink left-0 origin-top-left top-0 right-[99%]"></div>
 	<article class="p-4 md:p-0">
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
-			<h2 class="text-6xl md:text-9xl text-center text-sort">Uperfekt er perfekt</h2>
+			<h2 class="text-6xl md:text-9xl text-center text-sort ">Uperfekt er perfekt</h2>
 		</section>
 		<section class="max-w-4xl mx-auto mt-32" id="herovideo">
 			<video width="1280" height="960" autoplay muted loop>
@@ -26,19 +27,19 @@ import "../styles/tobii.min.css";
 		</section>
 		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 			<p class="text-xl font-playfair text-sort">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
-			<div>
+			<div class="hover:animate-[spin_3s_ease-in-out_infinite]">
 				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="my-0"/>
+					<Image src={pierre} alt="" class="my-0 rounded-md"/>
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
 				</a>
 			</div>
-			<p class="text-2xl italic text-center bg-sort p-8 text-white">
+			<p class="text-2xl italic text-center bg-hotpink p-8 text-white">
 				Pierre sælger 2 millioner fotos om året
 			</p>
-			<p class="text-2xl italic text-center bg-sort p-8 text-white">
+			<p class="text-2xl italic text-center bg-pink p-8 text-white">
 				Det svarer til én fotolicens hvert 16. sekund
 			</p>
-			<p class="text-2xl italic text-center  bg-sort p-8 text-white">
+			<p class="text-2xl italic text-center  bg-lyspink p-8 text-white">
 				Du ser hans fotos ca. 2 gange om dagen
 			</p>
 		</section>
@@ -47,15 +48,15 @@ import "../styles/tobii.min.css";
 			<div class="grid grid-cols-3 gap-4">
 				<div>
 					<p class="text-sort">Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
-					<Image src={arbejde} alt="" />
+					<Image src={arbejde} alt="" class="rounded-md" />
 				</div>
 				<div>
 					<p class="text-sort">Stock-fotos bliver ofte kritiseret for at være uden sjæl - det er de der billeder af en læge i hvid kittel med stetoskop om halsen på en meget hvid baggrund eller en meget glad dame fra virksomhedens salgs- eller supportafdeling.</p>
-					<Image src={apoteket} alt="" />
+					<Image src={apoteket} alt="" class="rounded-md"/>
 				</div> 
 				<div>
 					<p class="text-sort">Stock-fotos har eksisteret i mange år. Før branchen blev digital, tilbød stock-foto virksomhederne billedmapper, der kunne bestilles fra. Men stock-foto branchen var én af de tidlige til at blive fuldt digitaliseret.</p>
-					<Image src={godtarbejde} alt="" />
+					<Image src={godtarbejde} alt="" class="rounded-md"/>
 				</div>
 			</div>
 		</section>
@@ -75,15 +76,15 @@ import "../styles/tobii.min.css";
 				<p class="text-sort">Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
 			</div>
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
-				<div>
+				<div class="transition-all duration-200 hover:-skew-y-12">
 					<a href="glitch.jpg" class="lightbox">
-						<Image src={glitch} alt="" class="my-0" />
+						<Image src={glitch} alt="" class="my-0 rounded-md" />
 						<figcaption>Glitch kunst</figcaption>
 					</a>
 				</div>
-				<div>
+				<div class="transition-all duration-200 hover:skew-y-12">
 					<a href="lomo-smena-17.jpg" class="lightbox">
-						<Image src={smena} alt="" class="my-0" />
+						<Image src={smena} alt="" class="my-0 rounded-md" />
 						<figcaption>Dobbelteksponering med Smena</figcaption>
 					</a>
 				</div>
@@ -120,13 +121,13 @@ import "../styles/tobii.min.css";
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
 				<div>
 					<a href="over-out-icm.jpeg" class="lightbox">
-						<Image src={overouticm} alt="" class="my-0" />
+						<Image src={overouticm} alt="" class="my-0 rounded-md" />
 						<figcaption>Overeksponeret og ude af fokus</figcaption>
 					</a>	
 				</div>
 				<div>
 					<a href="tynd-film.jpg" class="lightbox">
-						<Image src={tyndfilm} alt="" class="my-0" />
+						<Image src={tyndfilm} alt="" class="my-0 rounded-md" />
 						<figcaption>Tynd film</figcaption>
 					</a>
 				</div>
@@ -136,7 +137,7 @@ import "../styles/tobii.min.css";
 				<p class="text-sort">Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
 				<div>
 					<a href="lidtifem-pierre-falcke.jpg" class="lightbox">
-						<Image src={lidtifem} alt="" class="my-0" />
+						<Image src={lidtifem} alt="" class="my-0 rounded-md" />
 						<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
 					</a>			
 				</div>
@@ -148,6 +149,12 @@ import "../styles/tobii.min.css";
 <script defer>
 	const tobii = new Tobii(); 
 </script>
+
+<script>
+	/* Import af Motion One biblioteket */
+	import { animate, stagger, inView, scroll, timeline } from "motion";
+	scroll( animate(".progress-bar", { scaleY: [0, 1] }));
+	</script>
 
 <style>
 	h2{
