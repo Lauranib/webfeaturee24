@@ -10,6 +10,10 @@ export default {
         pink: "#ea638c",
         lyspink: "#ffd9da",
       },
+
+      cursor: {
+        cursorvector: "url(/cursorvector2.svg), pointer",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms"), require("@tailwindcss/aspect-ratio"), require("@tailwindcss/container-queries")],

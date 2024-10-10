@@ -19,4 +19,11 @@
   .tobii {
     background-color: black;
   }
+
+  img,
+  a,
+  video,
+  .overlay {
+    @apply cursor-cursorvector;
+  }
 }
