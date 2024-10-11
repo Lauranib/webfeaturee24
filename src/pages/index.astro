@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
 import Button from '../components/Button.astro';
 import Link from '../components/Link.astro';
 import { Image } from 'astro:assets';
@@ -30,9 +31,10 @@ import "../styles/tobii.min.css";
 		</section>
 		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 			<p class="text-xl font-playfair text-sort">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
-			<div class="hover:animate-[spin_3s_ease-in-out_infinite]">
+			<div class="hover:animate-[spin_3s_ease-in-out_infinite] crossfadeimages mx-auto relative h-screen lg:w-screen">
 				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="my-0 rounded-md"/>
+					<Image src={pierre} alt="" class="my-0 rounded-md crossfadetopimg object-cover h-screen absolute top-0 z-0"/>
+					<Image src={pierre} alt="" class="my-0 rounded-md grayscale crossfadebottomimg object-cover h-screen absolute top-0 z-0"/> 
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
 				</a>
 			</div>
