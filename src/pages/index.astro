@@ -13,16 +13,19 @@ import smena from "../assets/images/lomo-smena-17.jpg";
 import overouticm from "../assets/images/over-out-icm.jpeg";
 import pierre from "../assets/images/pierre.jpeg";
 import tyndfilm from "../assets/images/tynd-film.jpg";
+import billig from "../assets/images/billig.jpg";
 import "../styles/tobii.min.css";
 ---
 <MainLayout title="Uperfekt er perfekt">
+	
 	<div class="progress-bar fixed h-full bg-gradient-to-b from-pink to-lyspink left-0 origin-top-left top-0 right-[99%]"></div>
+
 	<article class="p-4 md:p-0">
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
 			<h2 class="text-6xl md:text-9xl text-center text-sort">Uperfekt er perfekt</h2>
 		</section>
-		<section id="lydeffekter"  x-data class="max-w-4xl mx-auto mt-32 cursor cursor-cursorvector fotoinview" id="herovideo">
-			<video width="1280" height="960" autoplay muted loop	@click="$refs.trykforatafspillelyd.play()">
+		<section id="lydeffekter"  x-data class="max-w-4xl mx-auto mt-32 cursor cursor-cursorvector fotoinview" id="herovideo" id="videoonhover">
+			<video width="1280" height="960" autoplay muted loop	@click="$refs.trykforatafspillelyd.play()" x-ref="hovervideo" @mouseenter="$refs.hovervideo.play()" @mouseleave="$refs.hovervideo.pause()">
 				<source src="pierre-falcke-video.mp4" type="video/mp4">
 			</video> 
 			<audio x-ref="trykforatafspillelyd">
@@ -31,10 +34,10 @@ import "../styles/tobii.min.css";
 		</section>
 		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 			<p class="text-xl font-playfair text-sort">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
-			<div class="hover:animate-[spin_3s_ease-in-out_infinite] crossfadeimages mx-auto relative h-screen lg:w-screen">
+			<div class="hover:animate-[spin_3s_ease-in-out_infinite] crossfadeimages mx-auto relative h-screen">
 				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="my-0 rounded-md crossfadetopimg object-cover h-screen absolute top-0 z-0"/>
-					<Image src={pierre} alt="" class="my-0 rounded-md grayscale crossfadebottomimg object-cover h-screen absolute top-0 z-0"/> 
+					<Image src={pierre} alt="" class="my-0 rounded-md crossfadetopimg object-cover absolute"/>
+					<Image src={pierre} alt="" class="my-0 rounded-md grayscale crossfadebottomimg object-cover"/> 
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
 				</a>
 			</div>
@@ -67,7 +70,10 @@ import "../styles/tobii.min.css";
 				</div>
 			</div>
 		</section>
-		<section class="max-w-xl mx-auto mt-32 prose" id="pierresberoemmelse">
+
+		
+
+		<section class="max-w-xl mx-auto mt-32 prose pb-12" id="pierresberoemmelse">
 			<h2 class="text-4xl text-sort">Pierres berømmelse</h2>
 			<p class="text-sort">Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
 			<p class="text-sort">Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
@@ -76,6 +82,11 @@ import "../styles/tobii.min.css";
 			<p class="text-sort">Pierres profeti om stock-foto branchen holdt stik. Pierre var allerede en af landets bedst sælgende stock-fotografer, før han blev færdig med studiet på DMJX. 
 			</p>
 		</section>
+
+		<section class="scrollzoom overflow-clip">
+	<Image src={billig} class="scrollzoomimg mx-auto w-1/2" alt="">
+	</section> 
+
 		<section id="enskillevej">
 			<div class="max-w-xl mx-auto mt-32 prose">
 				<h2 class="text-4xl">En skillevej</h2>
@@ -120,6 +131,11 @@ import "../styles/tobii.min.css";
 				</div>
 			</div>
 		</section>
+
+		<section class="bg-teal-100 mt-8 h-screen w-100 bg-cover bg-center" style="background-image: url('/tynd-film.jpg');">
+	<p class="parallaxelement w-3/4 mx-auto p-10 bg-slate-50 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod metus id sem mattis luctus. Nullam leo ipsum, egestas a mauris quis, pharetra finibus magna. Praesent orci odio, tempor in tortor ut, pretium consequat eros. Etiam vitae imperdiet orci, at viverra quam. Suspendisse id massa et nulla cursus venenatis. Etiam pharetra velit et velit hendrerit tempus. Aenean dapibus erat sit amet malesuada maximus. Nulla vel risus congue, commodo velit et, auctor nulla. Donec aliquam risus vel magna porta consectetur. Ut vestibulum a turpis nec eleifend. Nullam at euismod nulla.</p>
+	</section>
+
 		<section id="nybegyndelse">
 			<div class="max-w-xl mx-auto my-32 prose">
 				<h2 class="text-4xl text-sort">En ny begyndelse</h2>
@@ -205,7 +221,31 @@ import "../styles/tobii.min.css";
         { rotate: 180 }
       )
   	}
-	}) 
+	});
+
+	scroll(
+	animate(".crossfadebottomimg", {
+		opacity: [1, 0]
+	}), {
+		target: document.querySelector(".crossfadeimages"),
+		offset: ["-25vh", "25vh"]
+	}
+	);
+	/* Parallax med tekstboks */ 
+	scroll(animate(".parallaxelement", { y: [50, 500] }), {
+		target: document.querySelector(".parallaxelement"),
+	});
+
+	scroll(
+    animate(".scrollzoomimg", { 
+        scale: [1, 1.5]    
+    }),
+    { 
+      target: document.querySelector(".scrollzoom"),
+      offset: ["0.75 end", "end end"]
+    }
+    );
+	
 </script>
 
 <style>
